@@ -23,14 +23,3 @@ A custom rule-based medical expert system built with Python, Flask, and SQLite, 
 * **Backend:** Python, Flask, SQLite
 * **Frontend:** HTML5, CSS3 (Glassmorphism design), JavaScript, FontAwesome
 * **Deployment:** Vercel (Serverless Python Functions)
-
----
-
-## 🚀 Local Installation & Running Guide
-
-If you want to run this project locally on your machine, follow these steps:
-
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/Komal-Shinde24/MediBot.git](https://github.com/Komal-Shinde24/MediBot.git)
-   cd MediBot
