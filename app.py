@@ -3,9 +3,10 @@ from database import init_db, get_db_connection
 from knowledge_base import SYMPTOMS, KNOWLEDGE_BASE
 from inference_engine import run_forward_chaining, run_backward_chaining
 import datetime
+import os
 
 app = Flask(__name__)
-app.secret_key = 'medibot_secret_key_123'
+app.secret_key = os.environ.get('SECRET_KEY')
 
 # Initialize database tables
 init_db()
