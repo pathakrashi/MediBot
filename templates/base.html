@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediBot — {{ app_tagline }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        @media print {
+            .sidebar, .top-header, .no-print, button { display: none !important; }
+            .main-content { margin: 0 !important; padding: 0 !important; }
+            .card { border: none !important; box-shadow: none !important; }
+            body { background: #fff !important; }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="brand">
+                <i class="fa-solid fa-square-plus brand-icon"></i>
+                <div>
+                    <h2>MediBot</h2>
+                    <span style="font-size: 10px; color: #d946ef; font-weight: 700; display: block; margin-top: 2px;">EXPERT SYSTEM</span>
+                </div>
+            </div>
+
+            <nav class="nav-menu">
+                <a href="{{ url_for('dashboard') }}" class="nav-item {% if active_page == 'dashboard' %}active{% endif %}">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Dashboard</span>
+                </a>
+                <a href="{{ url_for('assessment') }}" class="nav-item {% if active_page == 'assessment' %}active{% endif %}">
+                    <i class="fa-solid fa-stethoscope"></i>
+                    <span>Symptom Check (Forward)</span>
+                </a>
+                <a href="{{ url_for('backward_check') }}" class="nav-item {% if active_page == 'backward_check' %}active{% endif %}">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>Goal Check (Backward)</span>
+                </a>
+                <a href="{{ url_for('history') }}" class="nav-item {% if active_page == 'history' %}active{% endif %}">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>History Log</span>
+                </a>
+                <a href="{{ url_for('how_it_works') }}" class="nav-item {% if active_page == 'how_it_works' %}active{% endif %}">
+                    <i class="fa-solid fa-brain"></i>
+                    <span>How It Works</span>
+                </a>
+            </nav>
+
+            <div style="margin-top: auto;">
+                <a href="{{ url_for('logout') }}" class="nav-item">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Sign Out</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Main Workspace -->
+        <div class="main-content">
+            <div class="top-header">
+                <div>
+                    <h1 style="font-size: 20px; font-weight: 800; color: #0f172a;">{% block header_title %}Dashboard{% endblock %}</h1>
+                    <p style="font-size: 12px; color: #64748b; font-weight: 600; margin-top: 2px;">{{ app_tagline }}</p>
+                </div>
+                <div class="user-profile">
+                    <div class="avatar">{{ session.get('user_name', 'U')[0] | upper }}</div>
+                    <div>
+                        <span style="font-size: 14px; font-weight: 700; color: #334155; display: block;">{{ session.get('user_name', 'User') }}</span>
+                        <span style="font-size: 11px; color: #64748b; font-weight: 600;">{{ session.get('user_email', '') }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-body">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
