@@ -5,7 +5,7 @@ A custom rule-based medical expert system built with Python, Flask, and SQLite, 
 ---
 
 ## 🌟 Live Demonstration
-* **Live App URL:** [https://medi-bot-i9p9.vercel.app/login](https://medi-bot-i9p9.vercel.app/login)
+* **Live App URL:** [(https://medi-bot-sage.vercel.app/)](https://medi-bot-sage.vercel.app/)
 
 ---
 
